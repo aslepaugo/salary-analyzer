@@ -8,7 +8,7 @@ from terminaltables import AsciiTable
 load_dotenv()
 HH_RU_API_HOST = 'https://api.hh.ru'
 SUPER_JOB_API_HOST = 'https://api.superjob.ru/2.0'
-popular_technologies =[
+PROGRAMMING_LANGUAGES =[
     'Java',
     'C++',
     'Python',
@@ -116,7 +116,7 @@ def print_stats(source: int) -> None:
     table_header = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
     table_data = []
     table_data.append(table_header)
-    for technology in popular_technologies:
+    for technology in PROGRAMMING_LANGUAGES:
         stats = get_technology_salary(technology, source)
         if stats is None:
             break
