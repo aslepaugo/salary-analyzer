@@ -1,5 +1,5 @@
 # Salary Analyzer
-Search vacancies and pront average salaries in Moscow
+Search vacancies and pront average salaries in Moscow.
 
 ## First Time preparations
 
@@ -7,7 +7,7 @@ Register application for SuperJob api usage - [registration page](https://api.su
 
 Create `.env` file for local usage.
 
-Add environment variable `SUPER_JOB_SECRET_KEY`
+Add environment variable `SUPER_JOB_SECRET_KEY`.
 
 ```bash
 SUPER_JOB_SECRET_KEY = superjob_secret_key
@@ -15,7 +15,7 @@ SUPER_JOB_SECRET_KEY = superjob_secret_key
 
 Install requirements (Python 3 should be installed):
 
-*Also, it's recommended to use virtual environment*
+*Also, it's recommended to use virtual environment.*
 
 ```bash
 python -m venv venv
@@ -30,7 +30,7 @@ pip install -r requirements.txt
 
 ## Some tuning
 
-There is constant list `PROGRAMMING_LANGUAGES` which consist predefined programming languages list. 
+There is constant list `PROGRAMMING_LANGUAGES` which consist predefined programming languages list.
 You can modify it to remove or add your own preferences.
 
 ## Run and Enjoy
