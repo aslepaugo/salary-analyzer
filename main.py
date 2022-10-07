@@ -1,5 +1,6 @@
 import requests
 import os
+
 from dotenv import load_dotenv
 from math import ceil
 from terminaltables import AsciiTable
@@ -52,8 +53,7 @@ def get_technology_salary_hh(technology: str) -> dict:
         'period': SEARCH_VACANCY_PERIOD,
         'text': technology
     }
-    tech_stat = {}
-    tech_stat['vacancies_processed'] = 0
+    tech_stat = {'vacancies_processed': 0}
     total_salary_amount = 0
     page = 0
     pages_number = 1
