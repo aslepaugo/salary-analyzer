@@ -110,10 +110,10 @@ def get_technology_salary_sj(technology: str, headers: dict) -> dict:
 
 
 def print_stats(title: str, salary_data: list) -> None:
-    salary_table = [['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']]
+    vacancies_stats_table = [['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']]
     for salary in salary_data:
-        salary_table.append(salary)
-    table_instance = AsciiTable(salary_table, title)
+        vacancies_stats_table.append(salary)
+    table_instance = AsciiTable(vacancies_stats_table, title)
     print(table_instance.table)
 
 
@@ -122,26 +122,26 @@ if __name__ == '__main__':
     headers_sj = {
         'X-Api-App-Id':os.getenv('SUPER_JOB_SECRET_KEY')
     }
-    salary_data_hh = []
-    salary_data_sj = []
+    vacancies_stats_hh = []
+    vacancies_stats_sj = []
     for technology in TECHNOLOGIES:
-        salary_hh = get_technology_salary_hh(technology=technology)
-        salary_sj = get_technology_salary_sj(technology=technology, headers=headers_sj)
-        salary_data_hh.append(
+        technology_stats_hh = get_technology_salary_hh(technology=technology)
+        technology_stats_sj = get_technology_salary_sj(technology=technology, headers=headers_sj)
+        vacancies_stats_hh.append(
             [
                 technology, 
-                salary_hh['vacancies_found'], 
-                salary_hh['vacancies_processed'],
-                salary_hh['average_salary']
+                technology_stats_hh['vacancies_found'], 
+                technology_stats_hh['vacancies_processed'],
+                technology_stats_hh['average_salary']
             ]
         )
-        salary_data_sj.append(
+        vacancies_stats_sj.append(
             [
                 technology, 
-                salary_sj['vacancies_found'], 
-                salary_sj['vacancies_processed'],
-                salary_sj['average_salary']
+                technology_stats_sj['vacancies_found'], 
+                technology_stats_sj['vacancies_processed'],
+                technology_stats_sj['average_salary']
             ]
         )        
-    print_stats(title='HeadHunter Moscow', salary_data=salary_data_hh)
-    print_stats(title='SuperJob Moscow', salary_data=salary_data_sj)
+    print_stats(title='HeadHunter Moscow', salary_data=vacancies_stats_hh)
+    print_stats(title='SuperJob Moscow', salary_data=vacancies_stats_sj)
